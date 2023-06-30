@@ -14,7 +14,7 @@ void printGrid(int grid[N][N]) {
     }
 }
 
-// Function to check if a number can be placed in the given position
+// Function to check if a number is safe or not (i.e. whether it can be placed in the given position or not)
 bool isSafe(int grid[N][N], int row, int col, int num) {
     // Check if the number already exists in the row
     for (int i = 0; i < N; i++) {
@@ -44,7 +44,7 @@ bool isSafe(int grid[N][N], int row, int col, int num) {
     return true; // If the number can be placed
 }
 
-// Function to solve the Sudoku puzzle using backtracking
+// Function to solve the Sudoku puzzle using backtracking algorithm
 bool solveSudoku(int grid[N][N]) {
     int row, col;
 
@@ -62,7 +62,7 @@ bool solveSudoku(int grid[N][N]) {
         }
     }
 
-    // If no empty position found, the puzzle is solved
+    // If no empty position found, the Sudoku is solved
     if (!isEmpty) {
         return true;
     }
@@ -85,7 +85,6 @@ bool solveSudoku(int grid[N][N]) {
     return false; // No solution found
 }
 
-// Driver code
 int main() {
     int grid[N][N] = {
         {5, 3, 0, 0, 7, 0, 0, 0, 0},
@@ -100,7 +99,7 @@ int main() {
     };
 
     if (solveSudoku(grid)) {
-        cout << "Sudoku solution found:" << endl;
+        cout << "Given Sudoku solution :" << endl;
         printGrid(grid);
     } else {
         cout << "No solution exists." << endl;
